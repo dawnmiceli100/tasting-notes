@@ -1,0 +1,74 @@
+<%= render "shared/content_title", title: "Tasting Note for #{@wine.vintage} #{@wine.description}" %>
+
+<div class="panel panel-info tasting-note-panel">
+  <div class="panel-heading">
+    <h5 class="panel-title">Tasting Information</h5>
+  </div>  
+  <div class="panel-body">
+    <div class="row">
+      <p class="col-md-3"><span class="tasting-note-category-label">Tasting Date:</span> <%= friendly_date(@tasting_note.tasting_date) %></p>
+      <p class="col-md-2"><span class="tasting-note-category-label">Tasted By:</span> <%= @tasting_note.user.full_name %></p> 
+    </div>
+  </div>
+</div>            
+<div class="panel panel-info tasting-note-panel">
+  <div class="panel-heading">
+    <h5 class="panel-title">Appearance</h5> 
+  </div> 
+  <div class="panel-body"> 
+    <div class="row">
+      <p class="col-md-2"><span class="tasting-note-category-label">Color:</span> <%= @tasting_note.color %></p> 
+      <p class="col-md-2"><span class="tasting-note-category-label">Intensity:</span> <%= @tasting_note.color_intensity %></p>      
+      <p class="col-md-2"><span class="tasting-note-category-label">Clarity:</span> <%= @tasting_note.clarity %></p>   
+    </div>
+  </div>  
+</div>
+
+<div class="panel panel-info tasting-note-panel">
+  <div class="panel-heading">
+    <h5 class="panel-title">Aroma</h5> 
+  </div> 
+  <div class="panel-body">  
+    <div class="row">
+      <p class="col-md-2"><span class="tasting-note-category-label">Intensity:</span> <%= @tasting_note.aroma_intensity %></p>
+      <p class="col-md-6"><span class="tasting-note-category-label">Aromas:</span>
+        <%= @tasting_note.aromas.map{|a| a.name}.join(", ") %>
+      </p>     
+    </div>  
+  </div>
+</div>    
+
+<div class="panel panel-info tasting-note-panel">
+  <div class="panel-heading">
+    <h5 class="panel-title">Flavor</h5>
+  </div>
+  <div class="panel-body">  
+    <div class="row">
+      <p class="col-md-3"><span class="tasting-note-category-label">Sweetness:</span> <%= @tasting_note.sweetness %></p>
+      <p class="col-md-2"><span class="tasting-note-category-label">Acidity:</span> <%= @tasting_note.acidity %></p>
+      <p class="col-md-2"><span class="tasting-note-category-label">Tannin:</span> <%= @tasting_note.tannin %></p>
+      <p class="col-md-2"><span class="tasting-note-category-label">Body:</span> <%= @tasting_note.body %></p>
+      <p class="col-md-2"><span class="tasting-note-category-label">Finish:</span> <%= @tasting_note.finish %></p>
+    </div>
+    <div class="row">
+      <p class="col-md-2"><span class="tasting-note-category-label">Intensity:</span> <%= @tasting_note.flavor_intensity %></p>
+      <p class="col-md-6"><span class="tasting-note-category-label">Flavors:</span>
+        <%= @tasting_note.flavors.map{|f| f.name}.join(", ") %>
+    </div>  
+  </div>
+</div>    
+
+<div class="panel panel-info tasting-note-panel">
+  <div class="panel-heading">
+    <h5 class="panel-title">Conclusions</h5>
+  </div>
+  <div class="panel-body">  
+    <div class="row">
+      <p class="col-md-3"><span class="tasting-note-category-label">Overall Quality:</span> <%= @tasting_note.quality %></p>
+      <p class="col-md-8"><span class="tasting-note-category-label">Comments:</span> <%= @tasting_note.comments %></p>
+    </div>
+  </div>
+</div> 
+<br/> 
+<br/>  
+  

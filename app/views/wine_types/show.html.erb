@@ -1,0 +1,5 @@
+<% all_tasting_notes = link_to 'All Tasting Notes', home_path %>
+
+<%= render "shared/content_title", title: "#{all_tasting_notes} &raquo; Showing Tasting Notes for #{@wine_type.name}".html_safe %> 
+
+<%= render '/tasting_notes/notes_summary', notes: @wine_type.tasting_notes %>

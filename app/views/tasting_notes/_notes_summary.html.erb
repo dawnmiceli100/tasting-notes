@@ -1,0 +1,10 @@
+<div class="list-group">
+  <% notes.each do |note| %>
+    <div class="well col-md-8">
+      <h4><%= link_to note.wine.vintage.to_s + ' ' + note.wine.description, wine_tasting_note_path(note.wine, note) %></h4>
+      <p>Tasted <%= friendly_date(note.tasting_date) %> by <%= note.user.full_name %></p>
+      <p>Overall Quality: <%= note.quality %></p>
+      <p>Comments: <em>"<%= note.comments %>"</em></p> 
+    </div>   
+  <% end %>  
+</div  

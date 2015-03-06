@@ -1,0 +1,16 @@
+<%= render "shared/content_title", title: "Sign in" %>
+
+<div class="well col-md-6 col-md-offset-3">
+  <%= form_tag '/sign_in' do %>
+    <div class="form-group">
+      <%= label_tag :email %>
+      <%= email_field_tag(:email, '', class: "form-control") %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :password %>
+      <%= password_field_tag(:password, '', class: "form-control") %>
+    </div>
+    <br/>
+    <%= submit_tag "Sign in", class: "btn btn-primary" %>
+  <% end %>
+</div>      

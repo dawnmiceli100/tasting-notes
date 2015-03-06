@@ -1,0 +1,26 @@
+<%= render "shared/content_title", title: "Add a New Wine" %>
+
+<%= form_for @wine, html: {class: "form-horizontal"} do |f| %>
+  <%= render 'shared/errors', model_object: @wine %>
+  <div class="form-group">
+    <%= f.label "Type", class: "col-md-3 tn-body-text" %>
+    <div class="col-md-9">
+      <%= f.collection_select :wine_type_id, WineType.all, :id, :name, prompt: true %> 
+    </div>  
+  </div>   
+  <div class="form-group">
+    <%= f.label "Description (producer, varietal, region)", class: "col-md-3 tn-body-text" %>
+    <div class="col-md-9">
+      <%= f.text_field :description, class: "col-md-9" %> 
+    </div>    
+  </div>  
+  <div class="form-group">
+    <%= f.label :vintage, class: "col-md-3 tn-body-text" %>
+    <div class="col-md-9">
+      <%= f.text_field :vintage %>
+    </div>  
+  </div>
+  <br/>
+    <%= f.submit "Add Wine", class: "btn btn-primary" %>  
+<% end %> 
+<br/> 

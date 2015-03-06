@@ -1,0 +1,93 @@
+<%= render "shared/content_title", title: "Add a Tasting Note for #{@wine.vintage} #{@wine.description}" %>
+
+<%= form_for [@wine, @tasting_note], html: {class: "form-horizontal"} do |f| %>
+  <%= render 'shared/errors', model_object: @tasting_note %>
+    
+  <div class="form-group">
+    <%= f.label "Tasting Date:", class: "col-md-2 tn-body-text" %>
+    <%= f.date_select :tasting_date, class: "col-md-2" %>     
+  </div> 
+
+  <div class="panel panel-info tasting-note-panel">
+    <div class="panel-heading">
+      <h5 class="panel-title">Appearance</h5> 
+    </div> 
+    <div class="panel-body"> 
+      <div class="form-group">
+        <%= f.label :color, class: "col-md-1" %>
+        <% if @wine.wine_type.name == "Red" %>
+          <%= f.select(:color, [ ['purple', 'purple'], ['ruby', 'ruby'], ['garnet', 'garnet'], ['tawny', 'tawny'], ['brown', '5'] ], {include_blank: true}, {class: "col-md-2"}) %> 
+        <% elsif @wine.wine_type.name == "Rose" %> 
+          <%= f.select(:color, [ ['pink', 'pink'], ['salmon', 'salmon'], ['orange', 'orange'] ], {include_blank: true}, {class: "col-md-2"}) %> 
+        <% else %>
+          <%= f.select(:color, [ ['lemon-green', 'lemon-green'], ['lemon', 'lemon'], ['gold', 'gold'], ['amber', 'amber'], ['brown', 'brown'] ], {include_blank: true}, {class: "col-md-2"}) %> 
+        <% end %>      
+        <%= f.label "Intensity", class: "col-md-1" %>
+        <%= f.select(:color_intensity, [ ['pale', 'pale'], ['medium', 'medium'], ['deep', 'deep'] ], {include_blank: true}, {class: "col-md-1"}) %> 
+        <%= f.label :clarity, class: "col-md-1" %>
+        <%= f.select(:clarity, [ ['clear', 'clear'], ['hazy', 'hazy'] ], {include_blank: true}, {class: "col-md-1"}) %> 
+      </div>
+    </div>  
+  </div>
+
+  <div class="panel panel-info tasting-note-panel">
+    <div class="panel-heading">
+      <h5 class="panel-title">Aroma</h5> 
+    </div> 
+    <div class="panel-body">  
+      <div class="form-group">
+        <%= f.label "Intensity", class: "col-md-1" %>
+        <%= f.select(:aroma_intensity, [ ['light', 'light'], ['medium', 'medium'], ['pronounced', 'pronounced'] ], {include_blank: true}, {class: "col-md-1"}) %> 
+        <%= f.label "Aromas:", class: "col-md-1" %>
+        <%= f.collection_check_boxes(:aroma_ids, Aroma.order(:created_at), :id, :name) do |cb| %> 
+          <% cb.label(class: "checkbox checkbox-inline checkbox-row") {cb.check_box + cb.text} %>  
+        <% end %> 
+      </div>  
+    </div>
+  </div>    
+
+  <div class="panel panel-info tasting-note-panel">
+    <div class="panel-heading">
+      <h5 class="panel-title">Flavor</h5>
+    </div>
+    <div class="panel-body">  
+      <div class="form-group">
+        <%= f.label :sweetness, class: "col-md-1" %>
+        <%= f.select(:sweetness, [ ['dry', 'dry'], ['medium-dry', 'medium-dry'], ['medium-sweet', 'medium-sweet'], ['sweet', 'sweet'], ['luscious', 'luscious'] ], {include_blank: true}, {class: "col-md-2"}) %>  
+        <%= f.label :acidity, class: "col-md-1" %>
+        <%= f.select(:acidity, [ ['low', 'low'], ['medium', 'medium'], ['high', 'high'] ], {include_blank: true}, {class: "col-md-1"}) %> 
+        <%= f.label :tannin, class: "col-md-1" %>
+        <%= f.select(:tannin, [ ['none', 'none'], ['low', 'low'], ['medium', 'medium'], ['high', 'high'] ], {include_blank: true}, {class: "col-md-1"}) %> 
+        <%= f.label :body, class: "col-md-1" %>
+        <%= f.select(:body, [ ['light', 'light'], ['medium', 'medium'], ['full', 'full'] ], {include_blank: true}, {class: "col-md-1"}) %> 
+        <%= f.label :finish, class: "col-md-1" %>
+        <%= f.select(:finish, [ ['short', 'short'], ['medium', 'medium'], ['long', 'long'] ], {include_blank: true}, {class: "col-md-1"}) %> 
+      </div>
+      <div class="form-group">
+        <%= f.label "Intensity", class: "col-md-1" %>
+        <%= f.select(:flavor_intensity, [ ['light', 'light'], ['medium', 'medium'], ['pronounced', 'pronounced'] ], {include_blank: true}, {class: "col-md-1"}) %> 
+        <%= f.label "Flavors:", class: "col-md-1" %>
+        <%= f.collection_check_boxes(:flavor_ids, Flavor.order(:created_at), :id, :name) do |cb| %> 
+          <% cb.label(class: "checkbox checkbox-inline checkbox-row") {cb.check_box + cb.text} %>  
+        <% end %>   
+      </div>  
+    </div>
+  </div>    
+
+  <div class="panel panel-info tasting-note-panel">
+    <div class="panel-heading">
+      <h5 class="panel-title">Conclusions</h5>
+    </div>
+    <div class="panel-body">  
+      <div class="form-group">
+        <%= f.label :quality, class: "col-md-1" %>
+        <%= f.select(:quality, [ ['poor', 'poor'], ['acceptable', 'acceptable'], ['good', 'good'], ['very good', 'very good'], ['outstanding', 'outstanding'] ], {include_blank: true}, {class: "col-md-1"}) %> 
+        <%= f.label :comments, class: "col-md-1" %>
+        <%= f.text_area :comments, rows: 1, class: "col-md-7" %>
+      </div>
+    </div>
+  </div>    
+  <br/> 
+  <%= f.submit "Add Tasting Note", class: "btn btn-primary" %>  
+<% end %>
+<br/>   
