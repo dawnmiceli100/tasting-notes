@@ -12,13 +12,13 @@ describe TastingNotesController do
     describe "GET show" do
       it "sets the @tasting_note variable" do
         tasting_note = Fabricate(:tasting_note, wine: wine, wine_type: wine_type)
-        get :show, id: tasting_note.id
+        get :show, wine_id: wine.id, id: tasting_note.id
         expect(assigns(:tasting_note)).to eq(tasting_note)
       end
 
       it "sets the @wine variable" do
         tasting_note = Fabricate(:tasting_note, wine: wine, wine_type: wine_type)
-        get :show, id: tasting_note.id
+        get :show, wine_id: wine.id, id: tasting_note.id
         expect(assigns(:wine)).to eq(wine)
       end
     end 
@@ -80,7 +80,7 @@ describe TastingNotesController do
   context "with unauthenticated user" do
     describe "GET show" do
       it_behaves_like "redirect_for_unauthenticated_user" do
-        let(:action) { get :show, id: 1 }
+        let(:action) { get :show, wine_id: wine.id, id: 1 }
       end 
     end 
 

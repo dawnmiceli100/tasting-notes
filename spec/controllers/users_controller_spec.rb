@@ -27,21 +27,21 @@ describe UsersController do
     end  
 
     context "with invalid input" do
-      let(:initial_user_count) { User.count }
-      before do
-        post :create, user: { full_name: "", email: "jane@example.com", password: "password"}
-      end  
 
       it "does not create a User record" do
-        expect(User.count).to eq initial_user_count 
+        expect {
+          post :create, user: { full_name: "", email: "jane@example.com", password: "password" }
+        }.to change { User.count }.by 0  
       end  
 
       it "sets the @user variable" do
+        post :create, user: { full_name: "", email: "jane@example.com", password: "password" }
         expect(assigns(:user)).to be_new_record
         expect(assigns(:user)).to be_instance_of(User)
       end  
 
       it "renders the new template" do
+        post :create, user: { full_name: "", email: "jane@example.com", password: "password" }
         expect(response).to render_template('new')
       end  
     end  

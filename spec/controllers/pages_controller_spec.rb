@@ -2,10 +2,8 @@ require 'rails_helper'
 
 describe PagesController do 
   context "with authenticated user" do
-    before do
-      set_authenticated_user
-    end
-
+    before { set_authenticated_user }
+    
     describe "GET front" do
       it "redirects to home_path" do
         get :front

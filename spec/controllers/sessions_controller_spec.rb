@@ -2,64 +2,37 @@ require 'rails_helper'
 
 describe SessionsController do 
   context "user is signed in" do
-    before do
-      set_authenticated_user
-    end  
-
-    describe "GET new" do
-      it "redirects to home_path" do
-        get :new
-        expect(response).to redirect_to home_path
-      end  
-    end
+    before { set_authenticated_user }
       
-    describe "GET destroy" do
-      before do
-        get :destroy
-      end 
+    describe "DELETE destroy" do
+      before { delete :destroy }
 
       it "sets session[:user_id] to nil" do
         expect(session[:user_id]).to eq nil
       end
 
-      it "redirects to root_path" do
-        expect(response).to redirect_to root_path
-      end
+      it { is_expected.to redirect_to root_path }
 
-      it "sets the success message" do
-        expect(flash[:success]).not_to be_blank
-      end   
+      it { is_expected.to set_flash[:success] }
+    
     end  
   end
 
   context "user is not signed in" do
 
-    describe "GET new" do
-      it "renders the new template" do
-        get :new
-        expect(response).to render_template('new')
-      end  
-    end  
-
     describe "POST create" do
       let(:user) { Fabricate(:user) }
 
       context "with valid email and password" do
-        before do
-          post :create, email: user.email, password: user.password  
-        end  
-
+        before { post :create, email: user.email, password: user.password } 
+        
         it "sets session[:user_id]" do
           expect(session[:user_id]).to eq user.id
         end 
 
-        it "redirects to home_path" do
-          expect(response).to redirect_to home_path
-        end 
+        it { is_expected.to redirect_to home_path }
 
-        it "sets the success message" do
-          expect(flash[:success]).not_to be_blank
-        end 
+        it { is_expected.to set_flash[:success] }
       end  
 
       context "with invalid email and/or password" do
