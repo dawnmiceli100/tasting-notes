@@ -5,10 +5,8 @@ describe TastingNotesController do
   let(:wine) { Fabricate(:wine, wine_type: wine_type) }
 
   context "with authenticated user" do
-    before do
-      set_authenticated_user
-    end
-
+    before { set_authenticated_user }
+     
     describe "GET show" do
       it "sets the @tasting_note variable" do
         tasting_note = Fabricate(:tasting_note, wine: wine, wine_type: wine_type)
