@@ -14,6 +14,8 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "rails_bootstrap_forms";
+ @import url(http://fonts.googleapis.com/css?family=Dancing+Script);
+ @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
  .form-horizontal .radio, .form-horizontal .checkbox, .form-horizontal .radio-inline, .form-horizontal .checkbox-inline, .checkbox-row {
   padding-top: 0px;
@@ -27,12 +29,129 @@
   font-weight: bold;
  }
 
- .tn-body-text {
-  color: #D3D3D3;
+ .well {
+  font-family: 'Montserrat', sans-serif;
+ }
+
+ .navbar-default {
+  font-size: 16px;
+ }
+
+ .navbar-default .navbar-brand {
+  font-family: 'Dancing Script', cursive;
+  font-weight: bold;
+  font-size: 32px;
+  color: #91294C;
  }
 
  body {
-  background-color: #660033;
+  background-color: #909AA4;
+  font-family: 'Montserrat', sans-serif;
+ }
+
+ .front-container {
+  background: url("red-wine-background-computer-and-mobile.jpg") no-repeat center center fixed;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+ }
+
+ .front-container .jumbotron {
+  top: 40px;
+ }
+
+ .front-container .jumbotron h1 {
+  font-size: 80px;
+  font-weight: bold;
+  font-family: 'Dancing Script', cursive;
+  color: #91294C;
+ }
+
+ .btn-sign-up { 
+  color: #ffffff; 
+  background-color: #000000; 
+  border-color: #000000; 
+} 
+ 
+.btn-sign-up:hover, 
+  .btn-sign-up:focus, 
+  .btn-sign-up:active, 
+  .btn-sign-up.active, 
+  .open .dropdown-toggle.btn-sign-up { 
+    color: #ffffff; 
+    background-color: #A4B0BA; 
+    border-color: #A4B0BA; 
+} 
+  
+.btn-sign-up .badge { 
+  color: #000000; 
+  background-color: #ffffff; 
+}
+ 
+.btn-sign-in { 
+  color: #000000; 
+  background-color: #c7ced6; 
+  border-color: #c7ced6;
+} 
+ 
+.btn-sign-in:hover, 
+.btn-sign-in:focus, 
+.btn-sign-in:active, 
+.btn-sign-in.active, 
+.open .dropdown-toggle.btn-sign-in { 
+  color: #FFFFFF; 
+  background-color: #A4B0BA; 
+  border-color: #A4B0BA;
+} 
+ 
+ .sign-in-sign-up-panel {
+  margin-top: 80px;
+ }
+
+ .sign-in-sign-up-panel .panel-heading {
+  font-size: 20px;
+ }
+
+ .glass-color-Red {
+  color: #800000;
+ }
+
+ .glass-color-White {
+  color: #FFCC00;
+ }
+
+ .glass-color-Rose {
+  color: #FF70B8;
+ }
+
+ .glass-color-Sparkling {
+  color: #FFD494;
+ }
+
+ .tasting-note-panel .panel-color-Red {
+  color: #800000;
+ }
+
+ .tasting-note-panel .panel-color-White {
+  color: #FFCC00;
+ }
+
+ .tasting-note-panel .panel-color-Rose {
+  color: #FF70B8;
+ }
+
+ .tasting-note-panel .panel-color-Sparkling {
+  color: #FFCC00;
+ }
+
+ footer {
+  position: fixed;
+  bottom: 0;
+  left: 5px;
  }
 
 

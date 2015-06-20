@@ -1,85 +1,80 @@
-<!-- Brand and toggle get grouped for better mobile display -->
-<div class="navbar-header">
-  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-    <span class="sr-only">Toggle navigation</span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-  </button>
-  <%= link_to "Tasting Notes", root_path, :class => 'navbar-brand' %> 
-</div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+  <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-items">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Tasting Notes", root_path, :class => 'navbar-brand' %> 
+    </div>
 
-<!-- Collect the nav links, forms, and other content for toggling -->
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-  <% if signed_in? %>
-    
-    <div class="nav navbar-nav btn-group">
-      <div class="dropdown">
-        <button type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-          Wine Types <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <% WineType.all.each do |type| %>
-            <li>
-              <%= link_to type.name, wine_type_path(type) %>
-            </li>  
-          <% end %> 
-        </ul>  
-      </div>  
-    </div>  
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-items">
+      <% if signed_in? %>
+        
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false">Wine Types<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <% WineType.all.each do |type| %>
+                <li>
+                  <%= link_to type.name, wine_type_path(type) %>
+                </li>  
+              <% end %> 
+            </ul>  
+          </li> 
 
-    <div class="nav navbar-nav btn-group">
-      <div class="dropdown">
-        <button type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-          Wines <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <% Wine.all.each do |wine| %>
-            <li>
-              <%= link_to wine.vintage.to_s + ' ' + wine.description, wine_path(wine) %>
-            </li>  
-          <% end %>  
-        </ul>  
-      </div>  
-    </div> 
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false">Wines<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <% Wine.all.each do |wine| %>
+                <li>
+                  <%= link_to wine.vintage.to_s + ' ' + wine.description, wine_path(wine) %>
+                </li>  
+              <% end %>  
+            </ul>  
+          </li> 
 
-    <div class="nav navbar-nav btn-group">
-      <div class="dropdown">
-        <button type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-          New Tasting Note <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <% Wine.all.each do |wine| %>
-            <li>
-              <%= link_to wine.vintage.to_s + ' ' + wine.description, new_wine_tasting_note_path(wine) %>
-            </li>  
-          <% end %> 
-          <li class="divider"></li>
-          <li>
-            <%= link_to new_wine_path do %>
-              <span class="glyphicon glyphicon-plus"></span>
-              new wine
-            <% end %>
-          </li>    
-        </ul>  
-      </div>  
-    </div> 
-
-    <div class="nav navbar-nav navbar-right btn-group">
-      <div class="dropdown">
-        <button type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-          <%= current_user.full_name %> <span class="caret"></span>
-        </button>  
-        <ul class="dropdown-menu" role="menu">
-          <li>
-            <%= link_to sign_out_path do %>
-              <span class="glyphicon glyphicon-log-out"></span>
-              sign out
-            <% end %>  
-          </li>   
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false">New Tasting Note<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <% Wine.all.each do |wine| %>
+                <li>
+                  <%= link_to wine.vintage.to_s + ' ' + wine.description, new_wine_tasting_note_path(wine) %>
+                </li>  
+              <% end %> 
+              <li class="divider"></li>
+              <li>
+                <%= link_to new_wine_path do %>
+                  <span class="glyphicon glyphicon-plus"></span>
+                  new wine
+                <% end %>
+              </li>    
+            </ul>  
+          </li> 
         </ul>
-      </div>  
-    </div>  
-  <% end %>  
-</div>  
+
+        <div class="btn-group nav navbar-nav navbar-right">
+            <button type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true", aria-expanded="false">
+              <%= current_user.full_name %> <span class="caret"></span>
+            </button>  
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <%= link_to sign_out_path do %>
+                  <span class="glyphicon glyphicon-log-out"></span>
+                  sign out
+                <% end %>  
+              </li>   
+            </ul>
+          </div>           
+      <% end %>  
+    </div> 
+  </div>  
+</nav>   
   

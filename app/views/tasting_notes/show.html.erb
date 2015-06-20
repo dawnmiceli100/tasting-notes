@@ -1,7 +1,7 @@
 <%= render "shared/content_title", title: "Tasting Note for #{@wine.vintage} #{@wine.description}" %>
 
-<div class="panel panel-info tasting-note-panel">
-  <div class="panel-heading">
+<div class="panel panel-default tasting-note-panel">
+  <div class="panel-heading panel-color-<%= @tasting_note.wine_type.name %>">
     <h5 class="panel-title">Tasting Information</h5>
   </div>  
   <div class="panel-body">
@@ -11,8 +11,8 @@
     </div>
   </div>
 </div>            
-<div class="panel panel-info tasting-note-panel">
-  <div class="panel-heading">
+<div class="panel panel-default tasting-note-panel">
+  <div class="panel-heading panel-color-<%= @tasting_note.wine_type.name %>">
     <h5 class="panel-title">Appearance</h5> 
   </div> 
   <div class="panel-body"> 
@@ -24,8 +24,8 @@
   </div>  
 </div>
 
-<div class="panel panel-info tasting-note-panel">
-  <div class="panel-heading">
+<div class="panel panel-default tasting-note-panel">
+  <div class="panel-heading panel-color-<%= @tasting_note.wine_type.name %>">
     <h5 class="panel-title">Aroma</h5> 
   </div> 
   <div class="panel-body">  
@@ -38,8 +38,8 @@
   </div>
 </div>    
 
-<div class="panel panel-info tasting-note-panel">
-  <div class="panel-heading">
+<div class="panel panel-default tasting-note-panel">
+  <div class="panel-heading panel-color-<%= @tasting_note.wine_type.name %>">
     <h5 class="panel-title">Flavor</h5>
   </div>
   <div class="panel-body">  
@@ -58,8 +58,8 @@
   </div>
 </div>    
 
-<div class="panel panel-info tasting-note-panel">
-  <div class="panel-heading">
+<div class="panel panel-default tasting-note-panel">
+  <div class="panel-heading panel-color-<%= @tasting_note.wine_type.name %>">
     <h5 class="panel-title">Conclusions</h5>
   </div>
   <div class="panel-body">  
