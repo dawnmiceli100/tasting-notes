@@ -1,6 +1,6 @@
 <%= render "shared/content_title", title: "Add a Tasting Note for #{@wine.vintage} #{@wine.description}" %>
 
-<%= form_for [@wine, @tasting_note], html: {class: "form-horizontal"} do |f| %>
+<%= form_for [@wine, @tasting_note], html: {class: "form-horizontal tn-form"} do |f| %>
   <%= render 'shared/errors', model_object: @tasting_note %>
     
   <div class="form-group">
@@ -8,8 +8,8 @@
     <%= f.date_select :tasting_date, class: "col-md-2" %>     
   </div> 
 
-  <div class="panel panel-info tasting-note-panel">
-    <div class="panel-heading">
+  <div class="panel panel-default tasting-note-panel">
+    <div class="panel-heading panel-color-<%= @wine.wine_type.name %>">
       <h5 class="panel-title">Appearance</h5> 
     </div> 
     <div class="panel-body"> 
@@ -30,8 +30,8 @@
     </div>  
   </div>
 
-  <div class="panel panel-info tasting-note-panel">
-    <div class="panel-heading">
+  <div class="panel panel-default tasting-note-panel">
+    <div class="panel-heading panel-color-<%= @wine.wine_type.name %>">
       <h5 class="panel-title">Aroma</h5> 
     </div> 
     <div class="panel-body">  
@@ -46,8 +46,8 @@
     </div>
   </div>    
 
-  <div class="panel panel-info tasting-note-panel">
-    <div class="panel-heading">
+  <div class="panel panel-default tasting-note-panel">
+    <div class="panel-heading panel-color-<%= @wine.wine_type.name %>">
       <h5 class="panel-title">Flavor</h5>
     </div>
     <div class="panel-body">  
@@ -74,8 +74,8 @@
     </div>
   </div>    
 
-  <div class="panel panel-info tasting-note-panel">
-    <div class="panel-heading">
+  <div class="panel panel-default tasting-note-panel">
+    <div class="panel-heading panel-color-<%= @wine.wine_type.name %>">
       <h5 class="panel-title">Conclusions</h5>
     </div>
     <div class="panel-body">  
