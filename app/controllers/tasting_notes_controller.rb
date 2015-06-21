@@ -3,7 +3,7 @@ class TastingNotesController < ApplicationController
   before_action :set_wine, only: [:new, :create]
 
   def index
-    @tasting_notes = TastingNote.order(tasting_date: :desc)
+    @tasting_notes = TastingNote.order(tasting_date: :desc).page(params[:page]).per(3)
   end  
 
   def show

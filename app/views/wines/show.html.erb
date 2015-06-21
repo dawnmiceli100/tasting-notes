@@ -2,5 +2,5 @@
 
 <%= render "shared/content_title", title: "#{all_tasting_notes} &raquo; Showing Tasting Notes for #{@wine.vintage} #{@wine.description}".html_safe %> 
 
-<%= render '/tasting_notes/notes_summary', notes: @wine.tasting_notes %>
+<%= render '/tasting_notes/notes_summary', notes: @tasting_notes %>
   
