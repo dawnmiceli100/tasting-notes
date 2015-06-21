@@ -3,6 +3,7 @@ class WinesController < ApplicationController
 
   def show
     @wine = Wine.find(params[:id])
+    @tasting_notes = @wine.tasting_notes.order(tasting_date: :desc).page(params[:page]).per(3)
   end
     
   def new
